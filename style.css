@@ -1,0 +1,306 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Raleway', sans-serif;
+}
+
+
+h2 {
+    margin-top: 0;
+    font-size: 50px;
+}
+
+h3 {
+    margin-top: 0;
+    font-size: 40px;
+}
+
+p {
+    margin-top: 0;
+    padding-top: 10px;
+    font-size: 25px;
+}
+
+
+.font-size-small {
+    font-size: 12px;
+}
+
+.font-size-medium {
+    font-size: 16px;
+}
+
+.font-size-large {
+    font-size: 20px;
+}
+
+.headshot {
+  background-image: url('https://i.postimg.cc/52HnBf9r/haritha.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+  display: inline-block; /* for centering in the text-align parent */
+}
+
+.text-below-headshot {
+  font-size: 20px;
+  color: white;
+  display: block; /* Ensure it behaves as a block for line breaks */
+  margin: 0px;
+}
+
+
+.parallax-section {
+    position: relative;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+}
+
+.parallax-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+    z-index: 2; /* Ensure the overlay is above the background image but below the text content */
+}
+
+.parallax-section {
+    position: relative; /* Needed to position the pseudo-element correctly */
+    z-index: 1; /* Ensure the content is above the overlay */
+}
+
+/* Ensure text and other content within the parallax section have a higher z-index */
+.parallax-section * {
+    position: relative;
+    z-index: 3;
+}
+
+.parallax-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertical centering */
+    align-items: center; /* Horizontal centering */
+    padding: 10vh 10%; /* Top & bottom padding and left & right margins */
+    min-height: 80vh; /* Minimum height for the section */
+    box-sizing: border-box;
+}
+
+.headshot-container, .publications-container, .common-text {
+    width: 80%; /* Adjust the width of the inner content */
+    max-width: 1200px; /* Or any max-width you prefer */
+    margin: auto; /* This will center the content with auto margins */
+}
+
+.content-block {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust minmax values as needed */
+    gap: 20px; /* Space between items */
+    align-items: start; /* Align items to the start of each cell */
+}
+
+.common-text {
+/*  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 20px;
+    position: relative; /* For positioning the icon */
+}
+
+/* Icons - use pseudo-elements for icons or background images */
+.common-text.icon1::before {
+    content: ""; /* The content property is required for ::before */
+    display: block; /* Makes the pseudo-element behave like a block */
+    width: 50px; /* Width of the icon */
+    height: 50px; /* Height of the icon */
+    background-image: url('https://i.postimg.cc/htLPtYZD/Mind-Settings-512.png'); 
+    background-size: cover; /* Ensures the image covers the area */
+    position: absolute;
+    top: -60px; /* Adjust as needed to position the icon above the text */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Repeat for other icon classes */
+.common-text.icon2::before {
+    content: ""; /* The content property is required for ::before */
+    display: block; /* Makes the pseudo-element behave like a block */
+    width: 50px; /* Width of the icon */
+    height: 50px; /* Height of the icon */
+    background-image: url('https://i.postimg.cc/htLPtYZD/Mind-Settings-512.png'); 
+    background-size: cover; /* Ensures the image covers the area */
+    position: absolute;
+    top: -60px; /* Adjust as needed to position the icon above the text */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+
+#aboutme {
+    background-image: url('https://i.postimg.cc/q77YtGc0/golden-gate.jpg');
+}
+
+#publications {
+    background-image: url('https://i.postimg.cc/253cjSmS/iupui.jpg');
+}
+
+#professional-work {
+    background-image: url('https://i.postimg.cc/pd70mMXY/SF-skyline.jpg');
+}
+
+#media-blogs {
+    background-image: url('https://i.postimg.cc/GmXg1sWf/healthcare.jpg');
+}
+
+
+#section-name-display {
+    position: fixed;
+    top: 20px; /* Adjust based on your header/nav bar */
+    left: 20px;
+    color: #FFF;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: none; /* Initially hidden */
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+
+#side-nav {
+    position: fixed; /* Fixed sidebar on the side */
+    top: 20%; /* Center it vertically */
+    transform: translateY(-50%); /* Center-align the nav */
+    left: 0; /* Adjust based on preference */
+    z-index: 100; /* Ensure it's above other content */
+}
+
+#side-nav ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+}
+
+#side-nav ul li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none; /* Remove underline */
+    color: white; /* Text color */
+    margin-bottom: 1px; /* Space between links */
+}
+
+#side-nav ul li a:hover {
+    background-color: #800000; /* Hover background color */
+}
+
+#side-nav ul li a.active {
+    color: #800000; /* Change text color for active links */
+}
+
+
+.publications-container {
+/*    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for the container */*/
+    padding: 20px;
+    border-radius: 10px; /* Rounded corners for the container */
+    display: inline-block;
+}
+
+.publication-item {
+    margin: 20px;
+    display: inline-block;
+    text-align: left;
+    color: white; /* Text color */
+    text-decoration: none; /* No underline for links */
+}
+
+.publication-item img {
+    width: 100px; /* Adjust as needed */
+    height: 100px; /* Adjust as needed */
+    border-radius: 50%; /* Circular image */
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+.publications-container > a > img {
+    width: 120px; /* Adjust as needed */
+    height: 120px; /* Adjust as needed */
+    border-radius: 50%; /* Makes the image circular */
+    border: 2px solid #333; /* Adjust color as needed */
+    display: block; /* This will ensure that the image is block-level for proper spacing */
+    margin: 0 auto 10px; /* Centers the image and adds space below */
+    padding: 5px; /* Adjust padding as needed */
+}
+
+.publications-container > a {
+    display: inline-block; /* Aligns the link items vertically */
+/*    background-color: rgba(0, 0, 0, 0.6); /* Grey semi-transparent background for the text */*/
+    border-radius: 10px; /* Rounded corners for the background */
+    color: white; /* Text color */
+    text-align: center; /* Center the text */
+    padding: 20px; /* Padding inside the anchor tag */
+    margin: 10px; /* Margin around the anchor tag */
+    text-decoration: none; /* Remove underline from the link */
+/*    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */*/
+}
+
+
+
+.publication img {
+    width: 120px; /* Adjust as needed */
+    height: 120px; /* Adjust as needed */
+    border-radius: 50%; /* Makes the image circular */
+    border: 2px solid #333; /* Adjust color as needed */
+    margin-bottom: 10px; /* Space below the logo */
+}
+
+.publications-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the items horizontally */
+}
+
+.publication-item {
+    flex-basis: calc(33.333% - 40px); /* Allocate width for 3 items per row, adjust 40px for margin */
+    margin: 20px;
+    box-sizing: border-box;
+    text-align: center; /* Center-align the content inside each publication item */
+}
+
+
+.publication-item img {
+    width: 100px; /* Adjust based on desired size */
+    height: 100px; /* Same as width for a circle */
+    border-radius: 50%;
+    object-fit: cover; /* Ensures image covers the area without being squashed */
+    display: block;
+    margin: 0 auto; /* Center the image */
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .publications-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .publication {
+        width: 90%;
+    }
+}

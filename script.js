@@ -14,7 +14,7 @@ document.addEventListener('scroll', function() {
 });
 
 
-document.querySelectorAll('#side-nav a').forEach(link => {
+document.querySelectorAll(`#side-nav ul li a[href="#${id}"]`).forEach(link => {
     link.addEventListener('click', function(e) {
         e.preventDefault(); // Prevent default anchor click behavior
         const targetId = this.getAttribute('href');
@@ -26,15 +26,16 @@ document.querySelectorAll('#side-nav a').forEach(link => {
 
 document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            const id = entry.target.getAttribute('id');
-            if (entry.intersectionRatio > 0) {
-                document.querySelector(`side-nav ul li a[href="#${id}"]`).classList.add('active');
-            } else {
-                document.querySelector(`side-nav ul li a[href="#${id}"]`).classList.remove('active');
-            }
-        });
-    }, { rootMargin: "-50% 0px -50% 0px" });
+    entries.forEach(entry => {
+        const id = entry.target.getAttribute('id');
+        const navLink = document.querySelector(`#side-nav ul li a[href="#${id}"]`);
+        if (entry.isIntersecting) {
+            navLink.classList.add('active');
+        } else {
+            navLink.classList.remove('active');
+        }
+    });
+}, { rootMargin: "-10% 0px -10% 0px", threshold: 0.1 });
 
     // Track all sections that have an `id` applied
     document.querySelectorAll('section[id]').forEach((section) => {

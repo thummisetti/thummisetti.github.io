@@ -14,7 +14,8 @@ document.addEventListener('scroll', function() {
 });
 
 
-document.querySelectorAll(`#side-nav ul li a[href="#${id}"]`).forEach(link => {
+
+document.querySelectorAll('#side-nav ul li a').forEach(link => {
     link.addEventListener('click', function(e) {
         e.preventDefault(); // Prevent default anchor click behavior
         const targetId = this.getAttribute('href');
@@ -24,18 +25,31 @@ document.querySelectorAll(`#side-nav ul li a[href="#${id}"]`).forEach(link => {
 });
 
 
+
 document.addEventListener('DOMContentLoaded', () => {
+    let activeSectionId = ''; // Track the currently active section ID
+
     const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        const id = entry.target.getAttribute('id');
-        const navLink = document.querySelector(`#side-nav ul li a[href="#${id}"]`);
-        if (entry.isIntersecting) {
-            navLink.classList.add('active');
-        } else {
-            navLink.classList.remove('active');
-        }
-    });
-}, { rootMargin: "-10% 0px -10% 0px", threshold: 0.1 });
+        let maxIntersectionRatio = 0;
+        entries.forEach(entry => {
+            const id = entry.target.getAttribute('id');
+            if (entry.isIntersecting) {
+                if (entry.intersectionRatio > maxIntersectionRatio) {
+                    maxIntersectionRatio = entry.intersectionRatio;
+                    activeSectionId = id; // Update the active section to the one with the max intersection ratio
+                }
+            }
+        });
+
+        // Highlight the corresponding nav link for the active section
+        document.querySelectorAll('#side-nav ul li a').forEach(link => {
+            if (link.getAttribute('href') === `#${activeSectionId}`) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }, { rootMargin: "-10% 0px -10% 0px", threshold: 0.1 });
 
     // Track all sections that have an `id` applied
     document.querySelectorAll('section[id]').forEach((section) => {

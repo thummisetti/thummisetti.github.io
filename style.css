@@ -91,7 +91,7 @@ p {
 }
 
 
-.headshot-container, .publications-container, .common-text {
+.headshot-container, .common-text {
     width: 80%; /* Adjust the width of the inner content */
     max-width: 1200px; /* Or any max-width you prefer */
     margin: auto; /* This will center the content with auto margins */
@@ -195,18 +195,19 @@ p {
     margin-bottom: 1px; /* Space between links */
 }
 
-#side-nav ul li a:hover {
-    background-color: #800000; /* Hover background color */
+#side-nav ul li a:hover, #side-nav ul li a.active {
+    color: #07A3B6; 
+    font-weight: bold; /* Makes the font bold */
+    transform: scale(1.1); /* Slightly increases the size */
+    transition: transform 0.3s ease, font-weight 0.3s ease; /* Smooth transition for the effect */
 }
 
-#side-nav ul li a.active {
-    color: #800000; /* Change text color for active links */
-}
+
 
 
 .publication-item img {
-    width: 100px; /* Adjust as needed */
-    height: 100px; /* Adjust as needed */
+    width: 100px; 
+    height: 100px;
     border-radius: 50%; /* Circular image */
     margin-bottom: 10px;
     display: flex;
@@ -221,6 +222,7 @@ p {
     display: flex;
     flex-wrap: wrap;
     justify-content: center; /* Center the items horizontally */
+    height: 80vh;
     
 }
 
@@ -244,6 +246,17 @@ p {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+
+    .headshot {
+        width: 150px; /* Slightly smaller on medium devices */
+        height: 150px;
+    }
+
+    .publication-item img {
+    width: 40px; 
+    height: 40px;
+    }
+
     .publications-container {
         justify-content: space-around; /* Adjust as necessary for your design */
         padding: 5px; /* Even smaller padding for very small screens */
@@ -254,8 +267,21 @@ p {
     }
 
     .publication-item {
-        flex-basis: 100%; /* 100% width for small devices to stack them vertically */
+        flex-basis: calc(50% - 40px); /* Adjust for 2 items per row, with margins */
         margin: 5px 0; /* Reduce margin for smaller screens */
+    }
+
+
+    h2 {
+        font-size: 40px; /* Slightly smaller for medium devices */
+    }
+
+    h3 {
+        font-size: 32px;
+    }
+
+    p, .common-text {
+        font-size: 20px; /* Adjust for readability on smaller devices */
     }
 
 
@@ -263,6 +289,56 @@ p {
 
 
 @media (max-width: 480px) {
+
+    body, html {
+        font-size: 14px; /* This adjusts the base font size for smaller devices */
+    }
+
+    h2 {
+        font-size: 32px; /* Smaller for small devices */
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
+    p, .common-text {
+        font-size: 18px;
+    }
+
+    /* Adjust specific elements if needed */
+    .font-size-small {
+        font-size: 10px;
+    }
+
+    .font-size-medium {
+        font-size: 14px;
+    }
+
+    .font-size-large {
+        font-size: 16px;
+    }
+
+    .headshot {
+        width: 80px; /* Slightly smaller on medium devices */
+        height: 80px;
+    }
+
+    .publication-item img {
+    width: 60px; 
+    height: 60px;
+    }
+
+
+    .content-block, .publications-container{
+        overflow: auto;
+    }
+    .publication-item {
+        flex-basis: calc(100% - 20px); /* Full width, adjust margin */
+        margin: 10px;
+        font-size: 12px; /* Adjust font size if necessary */
+    }
+
     .publication-item p {
         font-size: 12px; /* Smaller font size for small devices */
     }

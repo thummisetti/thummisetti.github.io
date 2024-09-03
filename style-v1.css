@@ -1,0 +1,345 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Raleway', sans-serif;
+}
+
+
+h2 {
+    margin-top: 0;
+    font-size: 50px;
+}
+
+h3 {
+    margin-top: 0;
+    font-size: 40px;
+}
+
+p {
+    margin-top: 0;
+    padding-top: 10px;
+    font-size: 25px;
+}
+
+
+.font-size-small {
+    font-size: 12px;
+}
+
+.font-size-medium {
+    font-size: 16px;
+}
+
+.font-size-large {
+    font-size: 20px;
+}
+
+.headshot {
+  background-image: url('https://i.postimg.cc/52HnBf9r/haritha.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+  width: 180px;
+  height: 180px;
+  display: inline-block; /* for centering in the text-align parent */
+}
+
+.text-below-headshot {
+  font-size: 20px;
+  color: white;
+  display: block; /* Ensure it behaves as a block for line breaks */
+  margin: 0px;
+}
+
+
+.parallax-section {
+    position: relative;
+    height: 100vh;
+    min-height: 80vh; /* Minimum height for the section */
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertical centering */
+    align-items: center; /* Horizontal centering */
+    padding: 10vh 10%; /* Top & bottom padding and left & right margins */
+    box-sizing: border-box;
+    z-index: 1; /* Ensure the content is above the overlay */
+}
+
+.parallax-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+    z-index: -1; /* Positioned behind the content */
+}
+
+/* Ensure text and other content within the parallax section have a higher z-index */
+.parallax-section * {
+    position: relative;
+    z-index: 2;
+}
+
+
+.headshot-container, .common-text {
+    width: 80%; /* Adjust the width of the inner content */
+    max-width: 1200px; /* Or any max-width you prefer */
+    margin: auto; /* This will center the content with auto margins */
+}
+
+.content-block {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust minmax values as needed */
+    gap: 20px; /* Space between items */
+    align-items: start; /* Align items to the start of each cell */
+}
+
+.common-text {
+/*  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 20px;
+    position: relative; /* For positioning the icon */
+}
+
+/* Icons - use pseudo-elements for icons or background images */
+.common-text.icon1::before {
+    content: ""; /* The content property is required for ::before */
+    display: block; /* Makes the pseudo-element behave like a block */
+    width: 50px; /* Width of the icon */
+    height: 50px; /* Height of the icon */
+    background-image: url('https://i.postimg.cc/htLPtYZD/Mind-Settings-512.png'); 
+    background-size: cover; /* Ensures the image covers the area */
+    position: absolute;
+    top: -60px; /* Adjust as needed to position the icon above the text */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Repeat for other icon classes */
+.common-text.icon2::before {
+    content: ""; /* The content property is required for ::before */
+    display: block; /* Makes the pseudo-element behave like a block */
+    width: 50px; /* Width of the icon */
+    height: 50px; /* Height of the icon */
+    background-image: url('https://i.postimg.cc/htLPtYZD/Mind-Settings-512.png'); 
+    background-size: cover; /* Ensures the image covers the area */
+    position: absolute;
+    top: -60px; /* Adjust as needed to position the icon above the text */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+
+#aboutme {
+    background-image: url('https://i.postimg.cc/q77YtGc0/golden-gate.jpg');
+}
+
+#publications {
+    background-image: url('https://i.postimg.cc/253cjSmS/iupui.jpg');
+}
+
+#professional-work {
+    background-image: url('https://i.postimg.cc/pd70mMXY/SF-skyline.jpg');
+}
+
+#media-blogs {
+    background-image: url('https://i.postimg.cc/GmXg1sWf/healthcare.jpg');
+}
+
+
+#section-name-display {
+    position: fixed;
+    top: 20px; /* Adjust based on your header/nav bar */
+    left: 20px;
+    color: #FFF;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: none; /* Initially hidden */
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+
+#side-nav {
+    position: fixed; /* Fixed sidebar on the side */
+    top: 20%; /* Center it vertically */
+    transform: translateY(-50%); /* Center-align the nav */
+    left: 0; /* Adjust based on preference */
+    z-index: 100; /* Ensure it's above other content */
+}
+
+#side-nav ul {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+}
+
+#side-nav ul li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none; /* Remove underline */
+    color: white; /* Text color */
+    margin-bottom: 1px; /* Space between links */
+}
+
+#side-nav ul li a:hover, #side-nav ul li a.active {
+    color: #07A3B6; 
+    font-weight: bold; /* Makes the font bold */
+    transform: scale(1.1); /* Slightly increases the size */
+    transition: transform 0.3s ease, font-weight 0.3s ease; /* Smooth transition for the effect */
+}
+
+
+
+
+.publication-item img {
+    width: 100px; 
+    height: 100px;
+    border-radius: 50%; /* Circular image */
+    margin-bottom: 10px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.publications-container {
+    padding: 10px;
+    border-radius: 10px; /* Rounded corners for the container */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the items horizontally */
+    height: 80vh;
+    
+}
+
+
+.publication-item {
+    flex-basis: calc(33.333% - 40px); /* Allocate width for 3 items per row, adjust 40px for margin */
+    margin: 20px;
+    box-sizing: border-box;
+    text-align: center; /* Center-align the content inside each publication item */
+    display: inline-block;
+    color: white; /* Text color */
+}
+
+.publication-item p {
+    word-wrap: break-word; /* Ensure long words do not cause overflow */
+    font-size: 16px;
+    margin: 0 10px; /* Add some margin to keep text from touching the edges */
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+
+    .headshot {
+        width: 150px; /* Slightly smaller on medium devices */
+        height: 150px;
+    }
+
+    .publication-item img {
+    width: 40px; 
+    height: 40px;
+    }
+
+    .publications-container {
+        justify-content: space-around; /* Adjust as necessary for your design */
+        padding: 5px; /* Even smaller padding for very small screens */
+    }
+
+    .publication {
+        width: 90%;
+    }
+
+    .publication-item {
+        flex-basis: calc(50% - 40px); /* Adjust for 2 items per row, with margins */
+        margin: 5px 0; /* Reduce margin for smaller screens */
+    }
+
+
+    h2 {
+        font-size: 40px; /* Slightly smaller for medium devices */
+    }
+
+    h3 {
+        font-size: 32px;
+    }
+
+    p, .common-text {
+        font-size: 20px; /* Adjust for readability on smaller devices */
+    }
+
+
+}
+
+
+@media (max-width: 480px) {
+
+    body, html {
+        font-size: 14px; /* This adjusts the base font size for smaller devices */
+    }
+
+    h2 {
+        font-size: 32px; /* Smaller for small devices */
+    }
+
+    h3 {
+        font-size: 24px;
+    }
+
+    p, .common-text {
+        font-size: 18px;
+    }
+
+    /* Adjust specific elements if needed */
+    .font-size-small {
+        font-size: 10px;
+    }
+
+    .font-size-medium {
+        font-size: 14px;
+    }
+
+    .font-size-large {
+        font-size: 16px;
+    }
+
+    .headshot {
+        width: 80px; /* Slightly smaller on medium devices */
+        height: 80px;
+    }
+
+    .publication-item img {
+    width: 60px; 
+    height: 60px;
+    }
+
+
+    .content-block, .publications-container{
+        overflow: auto;
+    }
+    .publication-item {
+        flex-basis: calc(100% - 20px); /* Full width, adjust margin */
+        margin: 10px;
+        font-size: 12px; /* Adjust font size if necessary */
+    }
+
+    .publication-item p {
+        font-size: 12px; /* Smaller font size for small devices */
+    }
+}

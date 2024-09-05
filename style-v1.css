@@ -1,345 +1,370 @@
+/* Basic Styles */
 body, html {
-    height: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    overflow-x: hidden; /* Prevents horizontal scroll and gray margin */
+    width: 100%; /* Ensures body takes full width */
+    height: 100%; /* Ensures body takes full height */
 }
 
-
-h2 {
-    margin-top: 0;
-    font-size: 50px;
-}
-
-h3 {
-    margin-top: 0;
-    font-size: 40px;
-}
-
-p {
-    margin-top: 0;
-    padding-top: 10px;
-    font-size: 25px;
-}
-
-
-.font-size-small {
-    font-size: 12px;
-}
-
-.font-size-medium {
-    font-size: 16px;
-}
-
-.font-size-large {
-    font-size: 20px;
-}
-
-.headshot {
-  background-image: url('https://i.postimg.cc/52HnBf9r/haritha.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-radius: 50%;
-  width: 180px;
-  height: 180px;
-  display: inline-block; /* for centering in the text-align parent */
-}
-
-.text-below-headshot {
-  font-size: 20px;
-  color: white;
-  display: block; /* Ensure it behaves as a block for line breaks */
-  margin: 0px;
-}
-
-
-.parallax-section {
-    position: relative;
-    height: 100vh;
-    min-height: 80vh; /* Minimum height for the section */
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
+.about-section h2 {
+    font-size: 2rem;  /* Adjust as needed */
+    font-weight: 400; /* Make headings bold */
+    color: #333;      /* Adjust the heading color */
     text-align: center;
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+    margin-bottom: 10px;
+}
+
+.about-section p {
+    font-size: 1.1rem;  /* Adjust font size for paragraphs */
+    line-height: 1.6;
+    color: #666;        /* Softer color for the paragraph text */
+    text-align: center; /* Center the text */
+    max-width: 800px;   /* Limit the width to keep it centered */
+    margin: 0 auto 20px auto;  /* Ensure it's centered and with margin between sections */
+}
+
+.work-subsection h3, .education-subsection h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.work-subsection p, .education-subsection p {
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+}
+
+.work-item h3 {
+    margin: 10px 0;
+}
+
+.work-item p {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+
+/* Center align paragraphs */
+.centered-text p {
+    text-align: center; /* Center the paragraphs */
+    margin-bottom: 1em; /* Space between paragraphs */
+}
+
+/* Ensuring headings are also centered */
+.centered-text h2,
+.centered-text h3 {
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+
+.full-screen {
+    height: 100vh;
+    width: 100vw; /* Ensure full screen width */
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Vertical centering */
-    align-items: center; /* Horizontal centering */
-    padding: 10vh 10%; /* Top & bottom padding and left & right margins */
-    box-sizing: border-box;
-    z-index: 1; /* Ensure the content is above the overlay */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    color: #fff;
+    overflow: hidden; /* Prevents overflow */
 }
 
-.parallax-section::before {
+
+#hero {
+    position: relative;
+    background-image: url('images/golden_gate.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%; /* Ensure it covers the full height of the section */
+}
+
+#hero::before {
     content: '';
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
-    z-index: -1; /* Positioned behind the content */
+    background: rgba(0, 0, 0, 0.5); /* Dimming effect */
+    backdrop-filter: blur(4px); /* Blur effect */
+    z-index: 1; /* Ensure overlay is above the image */
 }
 
-/* Ensure text and other content within the parallax section have a higher z-index */
-.parallax-section * {
+.profile-container {
     position: relative;
-    z-index: 2;
+    z-index: 2; /* Ensure profile content is above the dimming effect */
+    transform: translateY(10%); /* Move the profile picture down by 20% without affecting the background */
 }
 
-
-.headshot-container, .common-text {
-    width: 80%; /* Adjust the width of the inner content */
-    max-width: 1200px; /* Or any max-width you prefer */
-    margin: auto; /* This will center the content with auto margins */
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    margin-bottom: 20px;
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    object-position: top; /* Center the image within the circle */
 }
 
-.content-block {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust minmax values as needed */
-    gap: 20px; /* Space between items */
-    align-items: start; /* Align items to the start of each cell */
+.social-icons a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 30px;
+    transition: color 0.3s;
 }
 
-.common-text {
-/*  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    margin: 20px;
-    padding: 20px;
-    border-radius: 10px;
-    font-size: 20px;
-    position: relative; /* For positioning the icon */
+.social-icons a:hover {
+    color: #007BFF; /* Highlight color */
 }
 
-/* Icons - use pseudo-elements for icons or background images */
-.common-text.icon1::before {
-    content: ""; /* The content property is required for ::before */
-    display: block; /* Makes the pseudo-element behave like a block */
-    width: 50px; /* Width of the icon */
-    height: 50px; /* Height of the icon */
-    background-image: url('https://i.postimg.cc/htLPtYZD/Mind-Settings-512.png'); 
-    background-size: cover; /* Ensures the image covers the area */
+.location {
     position: absolute;
-    top: -60px; /* Adjust as needed to position the icon above the text */
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-/* Repeat for other icon classes */
-.common-text.icon2::before {
-    content: ""; /* The content property is required for ::before */
-    display: block; /* Makes the pseudo-element behave like a block */
-    width: 50px; /* Width of the icon */
-    height: 50px; /* Height of the icon */
-    background-image: url('https://i.postimg.cc/htLPtYZD/Mind-Settings-512.png'); 
-    background-size: cover; /* Ensures the image covers the area */
-    position: absolute;
-    top: -60px; /* Adjust as needed to position the icon above the text */
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-
-
-#aboutme {
-    background-image: url('https://i.postimg.cc/q77YtGc0/golden-gate.jpg');
-}
-
-#publications {
-    background-image: url('https://i.postimg.cc/253cjSmS/iupui.jpg');
-}
-
-#professional-work {
-    background-image: url('https://i.postimg.cc/pd70mMXY/SF-skyline.jpg');
-}
-
-#media-blogs {
-    background-image: url('https://i.postimg.cc/GmXg1sWf/healthcare.jpg');
-}
-
-
-#section-name-display {
-    position: fixed;
-    top: 20px; /* Adjust based on your header/nav bar */
+    bottom: 20px;
     left: 20px;
-    color: #FFF;
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: 5px 10px;
-    border-radius: 5px;
-    display: none; /* Initially hidden */
-    z-index: 1000; /* Ensure it's above other content */
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+    z-index: 2; /* Ensure location text is above the dimming effect */
+}
+
+.menu-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 101; /* Ensures the icon is above the nav */
+}
+
+.content-section {
+    padding: 60px 20px;
+    background-color: #fff;
+    text-align: center;
+    color: #333;
+    width: 100%; /* Ensure no overflow from content sections */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 
+
+/* Style for the side navigation menu without background */
 #side-nav {
-    position: fixed; /* Fixed sidebar on the side */
-    top: 20%; /* Center it vertically */
-    transform: translateY(-50%); /* Center-align the nav */
-    left: 0; /* Adjust based on preference */
-    z-index: 100; /* Ensure it's above other content */
+    position: fixed;
+    top: 0;
+    right: -300px; /* Initially hidden */
+    width: 100px;
+    z-index: 100;
+    height: 100vh;
+    overflow: auto;
+    padding: 20px;
+    transition: right 0.3s ease;
+    background-color: transparent; /* No background color */
 }
 
+#side-nav.show-nav {
+    right: 0;
+}
+
+/* Styling the menu items */
 #side-nav ul {
-    list-style-type: none; /* Remove bullet points */
+    list-style: none;
     padding: 0;
-    margin: 0;
 }
 
 #side-nav ul li a {
     display: block;
-    padding: 10px;
-    text-decoration: none; /* Remove underline */
-    color: white; /* Text color */
-    margin-bottom: 1px; /* Space between links */
+    padding: 10px 0;
+    text-decoration: none;
+    font-size: 20px;
+    color: white; /* Font color set to white */
+    transition: color 0.3s ease;
 }
 
-#side-nav ul li a:hover, #side-nav ul li a.active {
-    color: #07A3B6; 
-    font-weight: bold; /* Makes the font bold */
-    transform: scale(1.1); /* Slightly increases the size */
-    transition: transform 0.3s ease, font-weight 0.3s ease; /* Smooth transition for the effect */
+#side-nav ul li a:hover {
+    color: #007BFF; /* Blue highlight color when hovered */
+}
+
+/* Make sure sections have enough spacing to accommodate scrolling */
+section {
+    padding-top: 80px; /* To ensure content isn't hidden behind header during scroll */
+    scroll-margin-top: 60px; /* Adjust if needed to prevent overlap */
+}
+
+.image-break {
+    position: relative;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+    overflow: hidden; /* Ensure pseudo-element stays within bounds */
+}
+
+.image-break::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dimming effect */
+    z-index: 1; /* Ensure overlay is above the image */
+}
+
+.image-break h2 {
+    position: relative;
+    z-index: 2; /* Ensure text is above the overlay */
+}
+
+.work-grid, .awards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.work-item, .award-item {
+    flex-basis: calc(33.333% - 40px); /* Allocate width for 3 items per row, adjust 40px for margin */
+    margin: 20px;
+    box-sizing: border-box;
+    text-align: center; /* Center-align the content inside each publication item */
+    display: inline-block;
+}
+
+/* Work logo styling */
+.work-logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+    object-fit: contain; /* Ensures the logo is contained properly */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    color:black;
+}
+
+.regular-logo {
+    display: block;
+    max-width: 100%;  /* Ensures responsiveness */
+    height: auto;     /* Maintains aspect ratio */
+    margin: 0 auto;   /* Centers the image horizontally */
 }
 
 
 
+
+footer {
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    width: 100%; /* Ensure full width */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+/* General container styles to keep the content within the center */
+.centered-text {
+    max-width: 800px; /* Adjust the max-width as needed */
+    margin: 0 auto; /* Center the text horizontally */
+    text-align: center; /* Ensure the text is center-aligned */
+    padding: 20px; /* Optional padding for spacing */
+    line-height: 1.6; /* Improve readability with better line spacing */
+}
+
+
+.section-divider {
+    width: 80%;
+    margin: 40px auto;
+    border-top: 2px solid #ccc;
+}
+
+/* Publications Section */
+.publications-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    padding: 20px;
+    justify-items: center; /* Center-aligns grid items */
+}
+
+.publication-item {
+    flex-basis: calc(33.333% - 40px); /* Allocate width for 3 items per row, adjust 40px for margin */
+    text-align: center; /* Center the text and icon */
+    margin: 20px;
+    box-sizing: border-box;
+}
 
 .publication-item img {
-    width: 100px; 
-    height: 100px;
-    border-radius: 50%; /* Circular image */
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Make the image circular */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
     margin-bottom: 10px;
     display: flex;
     margin-left: auto;
     margin-right: auto;
 }
 
-
-.publications-container {
-    padding: 10px;
-    border-radius: 10px; /* Rounded corners for the container */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Center the items horizontally */
-    height: 80vh;
-    
-}
-
-
-.publication-item {
-    flex-basis: calc(33.333% - 40px); /* Allocate width for 3 items per row, adjust 40px for margin */
-    margin: 20px;
-    box-sizing: border-box;
-    text-align: center; /* Center-align the content inside each publication item */
-    display: inline-block;
-    color: white; /* Text color */
-}
-
 .publication-item p {
-    word-wrap: break-word; /* Ensure long words do not cause overflow */
     font-size: 16px;
-    margin: 0 10px; /* Add some margin to keep text from touching the edges */
+    margin: 0 10px;
+    color: #333; /* Darker text color */
 }
 
-
-
-/* Responsive adjustments */
+/* Adjustments for smaller screens */
 @media (max-width: 768px) {
-
-    .headshot {
-        width: 150px; /* Slightly smaller on medium devices */
-        height: 150px;
-    }
-
     .publication-item img {
-    width: 40px; 
-    height: 40px;
+        width: 100px;
+        height: 100px;
     }
-
-    .publications-container {
-        justify-content: space-around; /* Adjust as necessary for your design */
-        padding: 5px; /* Even smaller padding for very small screens */
-    }
-
-    .publication {
-        width: 90%;
-    }
-
-    .publication-item {
-        flex-basis: calc(50% - 40px); /* Adjust for 2 items per row, with margins */
-        margin: 5px 0; /* Reduce margin for smaller screens */
-    }
-
-
-    h2 {
-        font-size: 40px; /* Slightly smaller for medium devices */
-    }
-
-    h3 {
-        font-size: 32px;
-    }
-
-    p, .common-text {
-        font-size: 20px; /* Adjust for readability on smaller devices */
-    }
-
-
 }
-
 
 @media (max-width: 480px) {
-
-    body, html {
-        font-size: 14px; /* This adjusts the base font size for smaller devices */
-    }
-
-    h2 {
-        font-size: 32px; /* Smaller for small devices */
-    }
-
-    h3 {
-        font-size: 24px;
-    }
-
-    p, .common-text {
-        font-size: 18px;
-    }
-
-    /* Adjust specific elements if needed */
-    .font-size-small {
-        font-size: 10px;
-    }
-
-    .font-size-medium {
-        font-size: 14px;
-    }
-
-    .font-size-large {
-        font-size: 16px;
-    }
-
-    .headshot {
-        width: 80px; /* Slightly smaller on medium devices */
+    .publication-item img {
+        width: 80px;
         height: 80px;
     }
-
-    .publication-item img {
-    width: 60px; 
-    height: 60px;
-    }
-
-
-    .content-block, .publications-container{
-        overflow: auto;
-    }
-    .publication-item {
-        flex-basis: calc(100% - 20px); /* Full width, adjust margin */
-        margin: 10px;
-        font-size: 12px; /* Adjust font size if necessary */
-    }
-
     .publication-item p {
-        font-size: 12px; /* Smaller font size for small devices */
+        font-size: 14px; /* Smaller text for smaller screens */
+    }
+}
+
+
+/* For a cleaner look with smaller screens */
+@media (max-width: 768px) {
+    .centered-text {
+        max-width: 90%; /* Allow more width for smaller screens */
+        padding: 10px;
+    }
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+    }
+
+    .menu-icon {
+        font-size: 20px;
+    }
+
+    .location {
+        font-size: 14px;
     }
 }
